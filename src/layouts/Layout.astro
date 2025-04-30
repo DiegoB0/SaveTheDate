@@ -1,3 +1,8 @@
+---
+import MobileMenuButton from '../components/MobileMenuButton.jsx';
+---
+
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +10,33 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
 		<title>Astro Basics</title>
 	</head>
+
 	<body>
+		<nav class="bg-white text-[#7B2E2E] p-4 flex justify-between items-center font-medium relative">
+			<div class="text-xl font-bold">Nuestra Boda!</div>
+
+
+			<!-- Desktop Nav -->
+			<div class="hidden md:flex gap-4">
+				<a href="/" class="hover:underline">Inicio</a>
+				<a href="/itinerary" class="hover:underline">Programa</a>
+				<a href="/rsvp" class="hover:underline">Asistencia</a>
+				<a href="/gifts" class="hover:underline">Regalos</a>
+				<a href="/gallery" class="hover:underline">Galería</a>
+
+			</div>
+
+			<!-- Mobile Menu Button -->
+
+			<MobileMenuButton client:load /> <!-- This will render the mobile button (Menu/X) -->
+		</nav>
+
+		<!-- Slot for the page content -->
 		<slot />
+
 	</body>
 </html>
 
@@ -20,3 +48,4 @@
 		height: 100%;
 	}
 </style>
+
