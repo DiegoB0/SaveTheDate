@@ -1,51 +1,58 @@
 ---
 import MobileMenuButton from '../components/MobileMenuButton.jsx';
+import '@fontsource/twinkle-star';
+
+import '@fontsource/merriweather';
+import '@fontsource/pacifico';
+
 ---
 
-
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
 
-		<title>Astro Basics</title>
-	</head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <title>V & C</title>
 
-	<body>
-		<nav class="bg-white text-[#7B2E2E] p-4 flex justify-between items-center font-medium relative">
-			<div class="text-xl font-bold">Nuestra Boda!</div>
+  </head>
+
+  <body class="m-0 w-full h-full flex flex-col min-h-screen text-[#7B2E2E] bg-white font-medium">
+    <!-- Sticky Navbar -->
+    <nav class="sticky top-0 z-50 bg-white text-[#7B2E2E] p-4 flex justify-between items-center shadow-md">
+      <div class="text-xl font-bold">
+        <a href="/" class="twinkle">Vanesa & Carlos</a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex gap-4">
+        <a href="/" class="hover:underline">Inicio</a>
+        <a href="/itinerary" class="hover:underline">Programa</a>
+        <a href="/rsvp" class="hover:underline">Asistencia</a>
+
+        <a href="/gifts" class="hover:underline">Regalos</a>
+        <a href="/gallery" class="hover:underline">Galería</a>
+      </div>
 
 
-			<!-- Desktop Nav -->
-			<div class="hidden md:flex gap-4">
-				<a href="/" class="hover:underline">Inicio</a>
-				<a href="/itinerary" class="hover:underline">Programa</a>
-				<a href="/rsvp" class="hover:underline">Asistencia</a>
-				<a href="/gifts" class="hover:underline">Regalos</a>
-				<a href="/gallery" class="hover:underline">Galería</a>
+      <!-- Mobile Menu -->
+      <MobileMenuButton client:load />
+    </nav>
 
-			</div>
 
-			<!-- Mobile Menu Button -->
-
-			<MobileMenuButton client:load /> <!-- This will render the mobile button (Menu/X) -->
-		</nav>
-
-		<!-- Slot for the page content -->
-		<slot />
-
-	</body>
+    <!-- Main Content -->
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+  </body>
 </html>
 
+
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  .twinkle {
+    font-family: 'Pacifico', cursive;
+  }
+
 </style>
 
