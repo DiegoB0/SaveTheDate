@@ -5,6 +5,13 @@ import '@fontsource/merriweather';
 
 
 function PhotoWall() {
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+
+  };
+
   return (
     <section className="min-h-screen py-12 px-4 bg-orange-100 overflow-hidden relative">
       <h2
@@ -15,6 +22,16 @@ function PhotoWall() {
         Mural de fotos
       </h2>
 
+      <motion.p
+        className="text-center font-semibold text-gray-400 mb-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        style={{ fontFamily: "'Merriweather', normal" }}
+      >
+        Ayudanos a capturar momentos especiales de nuestra boda
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
