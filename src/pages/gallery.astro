@@ -1,27 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+import PhotoWall from '../components/PhotoWall.jsx'
 ---
 
 <Layout>
+<PhotoWall client:only />
 
-  <section class="bg-[#7B2E2E] text-white py-16 px-4 text-center">
-    <h1 class="text-3xl font-bold">Guest Photo Wall 📸</h1>
-    <p class="mt-2">Share your favorite memories!</p>
-  </section>
-
-  <section class="max-w-2xl mx-auto py-12 px-4">
-    <form class="mb-8 space-y-4">
-      <input type="file" accept="image/*" class="block w-full" />
-      <button type="submit" class="bg-[#7B2E2E] text-white py-2 px-6 rounded">Upload</button>
-    </form>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-gray-300 h-32 rounded"></div>
-      <div class="bg-gray-300 h-32 rounded"></div>
-      <div class="bg-gray-300 h-32 rounded"></div>
-      <div class="bg-gray-300 h-32 rounded"></div>
-    </div>
-  </section>
+  <!-- <section class="bg-[#7B2E2E] text-white py-16 px-4 text-center"> -->
+  <!--   <h1 class="text-3xl font-bold">Guest Photo Wall 📸</h1> -->
+  <!--   <p class="mt-2">Share your favorite memories!</p> -->
+  <!-- </section> -->
+  <!---->
+  <!-- <section class="max-w-2xl mx-auto py-12 px-4"> -->
+  <!--   <form class="mb-8 space-y-4"> -->
+  <!--     <input type="file" accept="image/*" class="block w-full" /> -->
+  <!--     <button type="submit" class="bg-[#7B2E2E] text-white py-2 px-6 rounded">Upload</button> -->
+  <!--   </form> -->
+  <!---->
+  <!--   <div class="grid grid-cols-2 md:grid-cols-4 gap-4"> -->
+  <!--     <div class="bg-gray-300 h-32 rounded"></div> -->
+  <!--     <div class="bg-gray-300 h-32 rounded"></div> -->
+  <!--     <div class="bg-gray-300 h-32 rounded"></div> -->
+  <!--     <div class="bg-gray-300 h-32 rounded"></div> -->
+  <!--   </div> -->
+  <!-- </section> -->
 </Layout>
 
