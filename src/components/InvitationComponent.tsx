@@ -17,24 +17,41 @@ export default function InvitationComponent({ data }: { data: any }) {
         const fileName = `invitacion-${data[0].guestName}`;
 
         try {
-
-            const response = await fetch(pdfUrl);
-            const blob = await response.blob();
-            const blobUrl = window.URL.createObjectURL(blob);
+            // Method 1: Open in new tab and also trigger download
             const link = document.createElement('a');
-            link.href = blobUrl;
+            link.href = pdfUrl;
             link.download = fileName;
+            link.target = '_blank';  // This makes it open in new tab
+            link.rel = 'noopener noreferrer';  // Security best practice
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            window.URL.revokeObjectURL(blobUrl);
-
         } catch (error) {
             console.error('Download failed:', error);
             alert('Failed to download PDF. Please try again.');
         } finally {
             setIsDownloading(false);
         }
+
+        //try {
+
+        //    const response = await fetch(pdfUrl);
+        //    const blob = await response.blob();
+        //    const blobUrl = window.URL.createObjectURL(blob);
+        //    const link = document.createElement('a');
+        //    link.href = blobUrl;
+        //    link.download = fileName;
+        //    document.body.appendChild(link);
+        //    link.click();
+        //    document.body.removeChild(link);
+        //    window.URL.revokeObjectURL(blobUrl);
+
+        //} catch (error) {
+        //    console.error('Download failed:', error);
+        //    alert('Failed to download PDF. Please try again.');
+        //} finally {
+        //    setIsDownloading(false);
+        //}
     }
 
     return (
@@ -191,7 +208,7 @@ function Stamp({ openEnvelope }: { openEnvelope: boolean }) {
             <motion.div
                 className={` fixed left-1/2 top-1/2 h-[7.2rem] w-[7.2rem] rounded-full bg-[#d1bead] blur-xs z-[19] -translate-[53%] flex justify-center items-center shadow-md`}
                 animate={{
-                    x: openEnvelope ? "65vw" : '0',
+                    x: openEnvelope ? "70vw" : '0',
                     opacity: openEnvelope ? '0' : '1'
                 }}
                 transition={{
