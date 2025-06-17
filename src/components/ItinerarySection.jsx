@@ -1,7 +1,7 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
 import '@fontsource/merriweather';
 import '@fontsource/pacifico';
-import { MapPin } from 'lucide-react';
+import { MapPin, MapPinned } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
 const fadeInUp = {
@@ -39,19 +39,91 @@ export default function ItinerarySection() {
   }, [isInView]);
 
   return (
-    <section className="py-12 px-4 bg-white overflow-hidden">
+    <section className="py-12 px-4 overflow-hidden">
       <h2
-        className="text-3xl font-bold text-center text-[#7B2E2E] mb-8"
-        style={{ fontFamily: "'Pacifico', cursive" }}
+        className="text-5xl font-bold text-center text-[#f2a366] mb-16"
       >
-        Programa
+        PROGRAMA
       </h2>
 
       <div
         ref={ref}
-        className="flex flex-col lg:flex-row items-center justify-center gap-8 px-4"
+        className="flex justify-center montserrat"
       >
-        {eventData.map((event, index) => (
+        <div className='px-2 sm:px-4 xl:px-32 rounded-xs h-[250dvh] w-full grid gid-rows-3'>
+          <div 
+             className=' w-5 h-5 rounded-full bg-[#f7dac6] absolute -translate-y-8 -translate-x-1.5 xl:-translate-x-0 xl:justify-self-center'
+          />
+          <div
+            className=' w-2 rounded-3xl h-[250dvh] bg-[#f7dac6] absolute xl:justify-self-center'
+          />
+            <div 
+             className=' w-5 h-5 rounded-full bg-[#f7dac6] absolute translate-y-[calc(250dvh+0.8rem)] -translate-x-1.5 xl:-translate-x-0 xl:justify-self-center'
+          />
+          <div className=' xl:grid xl:grid-cols-5 items-center'>
+            <div className=' mt-36 xl:mt-0 ml-8 xl:ml-0 w-[min(80vw,40rem)] xl:w-full p-8 border-4 bg-red-950/50 shadow col-span-2 flex flex-col gap-6 relative rounded-xs backdrop-blur-xs'>
+              <div className=' h-16 w-16 rounded-full border-4 border-[#f7dac6] shadow absolute -top-30 flex justify-center items-center left-1/2 -translate-x-1/2 opacity-80'>
+                <div className=' h-8 w-8 rounded-full bg-[#f7dac6] ' />
+                <div className=' h-1.5 w-[min(30vw,15rem)] xl:w-[18vw] rounded-3xl bg-[#f7dac6] absolute right-20 xl:left-20' />
+              </div>
+              <h1 className=' text-center text-3xl underline underline-offset-8'> 18:00 HRS </h1>
+              <h2 className=' text-center text-2xl text-white'>MISA</h2>
+              <p className=' text-white text-center opacity-85'>Rio Balsas, valle del sur, 34120 Durango Dgo</p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Av.+Universidad+S%2FN%2C+Fraccionamiento+Villa+Universitaria%2C+Durango%2C+Mexico"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex justify-center p-4 rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5"
+              >
+                Ver el mapa
+                <MapPinned className="w-6 h-6 ml-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className='xl:grid items-center xl:grid-cols-5'>
+            <div className=' mt-36 xl:mt-0 ml-8 xl:ml-0  w-[min(80vw,40rem)] xl:w-full p-8 border-4 bg-red-950/50 shadow col-span-2 col-start-4 flex flex-col gap-6 relative rounded-xs backdrop-blur-xs'>
+              <div className=' h-16 w-16 rounded-full border-4 border-[#f7dac6] shadow absolute -top-30 flex justify-center items-center left-1/2 -translate-x-1/2 opacity-80' >
+                <div className=' h-8 w-8 rounded-full bg-[#f7dac6] ' />
+                <div className=' h-1.5 w-[min(30vw,15rem)] xl:w-[18vw] rounded-3xl bg-[#f7dac6] absolute right-20' />
+              </div>
+              <h1 className=' text-center text-3xl underline underline-offset-8'> 20:00 HRS </h1>
+              <h2 className=' text-center text-2xl text-white'>BODA CIVIL</h2>
+              <p className=' text-white text-center opacity-85'>Jardin y Salon Velvet</p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Av.+Universidad+S%2FN%2C+Fraccionamiento+Villa+Universitaria%2C+Durango%2C+Mexico"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex justify-center p-4 rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5"
+              >
+                Ver el mapa
+                <MapPinned className="w-6 h-6 ml-4" />
+              </a>
+            </div>
+          </div>
+          <div className='xl:grid items-center xl:grid-cols-5'>
+            <div className=' mt-36 xl:mt-0 ml-8 xl:ml-0  w-[min(80vw,40rem)] xl:w-full p-8 border-4 bg-red-950/50 shadow col-span-2 flex flex-col gap-6 relative rounded-xs backdrop-blur-xs'>
+              <div className=' h-16 w-16 rounded-full border-4 border-[#f7dac6] shadow absolute -top-30 flex justify-center items-center left-1/2 -translate-x-1/2 opacity-80'>
+                <div className=' h-8 w-8 rounded-full bg-[#f7dac6] ' />
+                <div className=' h-1.5 w-[min(30vw,15rem)] xl:w-[18vw] rounded-3xl bg-[#f7dac6] absolute right-20 xl:left-20' />
+              </div>
+              <h1 className=' text-center text-3xl underline underline-offset-8'> 21:00 HRS </h1>
+              <h2 className=' text-center text-2xl text-white'>RECEPCIÓN</h2>
+              <p className=' text-white text-center opacity-85'>Jardin y Salón Velvet</p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Av.+Universidad+S%2FN%2C+Fraccionamiento+Villa+Universitaria%2C+Durango%2C+Mexico"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex justify-center p-4 rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5"
+              >
+                Ver el mapa
+                <MapPinned className="w-6 h-6 ml-4" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+        {/*{eventData.map((event, index) => (
 
 
           <motion.div
@@ -85,7 +157,7 @@ export default function ItinerarySection() {
             </a>
           </motion.div>
 
-        ))}
+        ))}*/}
       </div>
     </section>
   );

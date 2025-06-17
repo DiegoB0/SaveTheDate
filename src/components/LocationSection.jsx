@@ -1,6 +1,4 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
-import '@fontsource/merriweather';
-import '@fontsource/pacifico';
 import { MapPinned, ArrowRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
@@ -27,50 +25,46 @@ export default function LocationSection() {
   }, [leftInView, rightInView]);
 
   return (
-    <section className="bg-white py-12 px-4">
+    <section className="py-24 xl:px-4 bg-rose-950/10">
       <motion.h2
 
-        className="text-3xl font-bold text-center text-[#7B2E2E] mb-8"
+        className="text-5xl font-bold text-center text-[#f2a366] mb-14"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        style={{ fontFamily: "'Pacifico', cursive" }}
       >
 
-        ¿Dónde y Cuándo?
+        ¿DÓNDE Y CUANDO?
       </motion.h2>
 
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className=" px-4 xl:px-32 mx-auto flex flex-col md:flex-row gap-14 montserrat">
         <motion.div
           ref={leftRef}
 
           variants={fadeInUp}
           initial="hidden"
           animate={leftControls}
-          className="min-h-[150px]"
+          className="min-h-[150px] flex flex-col gap-3 xl:text-right md:mt-14"
         >
-          <h3 className="text-base font-semibold text-[#7B2E2E]" style={{ fontFamily: "'Merriweather', normal" }}>
-            Ubicación
+          <h3 className="text-2xl font-semibold text-[#f7dac6] mr-2">
+            UBICACIÓN
           </h3>
-          <p className="text-gray-500" style={{ fontFamily: "'Merriweather', normal" }}>
+          <p className="text-white text-xl montserrat">
             Av. Universidad S/N, Fracc. Villa Universitaria, Durango, México
           </p>
-          <br />
-          <h3 className="text-base font-semibold text-[#7B2E2E]" style={{ fontFamily: "'Merriweather', normal" }}>
-            Horario
+          <h3 className="text-2xl font-semibold text-[#f7dac6] mr-2">
+            HORARIO
           </h3>
-          <p className="text-gray-500" style={{ fontFamily: "'Merriweather', normal" }}>
+          <p className="text-white text-xl montserrat">
             La recepción comienza a las 8:00 PM
           </p>
-
-          <div className='flex justify-start py-4'>
+          <div className='flex justify-center xl:justify-end mt-4'>
             <a
               href="/itinerary"
-              className="rounded-lg mt-4 px-4 py-2 text-[#7B2E2E] border-2 border-[#7B2E2E] hover:bg-[#5e2323] hover:text-white transition-colors duration-200 ease-in-out flex gap-2"
+              className="w-2/3 xl:ml-auto flex justify-center p-4 rounded-sm border-3 border-[#f7dac680] text-[#f7dac6] bg-rose-950/20 hover:border-[#f7dac6] shadow montserrat font-semibold transition-all hover:opacity-100 hover:-translate-y-1 active:-translate-y-0.5 backdrop-blur-xl"
             >
               Ver programa
-              <ArrowRight />
             </a>
           </div>
 
@@ -88,26 +82,35 @@ export default function LocationSection() {
             variants={fadeInUp}
             initial="hidden"
             animate={rightControls}
-            whileHover={{ scale: 1.03, rotate: 1 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full h-64 rounded-lg overflow-hidden min-h-[256px]"
+            className="w-full h-[26rem] rounded-lg overflow-hidden min-h-[256px] transition-all hover:-translate-y-2"
           >
             <motion.img
               src="/wedding_location.jpeg"
               alt="Ubicación del evento"
               className="object-cover w-full h-full"
               style={{ cursor: 'pointer' }}
-              whileHover={{
-                scale: 1.05,
-                rotate: 2,
-
-                transition: { type: 'spring', stiffness: 300 },
-              }}
             />
+          </motion.div>
+          <motion.div 
+            className='flex justify-start py-4'
+            variants={fadeInUp}
+            initial="hidden"
+            animate={rightControls}
+          >
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Av.+Universidad+S%2FN%2C+Fraccionamiento+Villa+Universitaria%2C+Durango%2C+Mexico"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex justify-center p-4 rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5 backdrop-blur-xl"
+            >
+              Ir al mapa
+              <MapPinned className="w-6 h-6 ml-4" />
+            </a>
           </motion.div>
         </a>
 
-        <motion.div
+        {/*<motion.div
           ref={rightRef}
           variants={fadeInUp}
           initial="hidden"
@@ -126,7 +129,7 @@ export default function LocationSection() {
             <MapPinned className="w-4 h-4 mt-1" />
             Ir al mapa
           </a>
-        </motion.div>
+        </motion.div>*/}
 
       </div>
     </section>

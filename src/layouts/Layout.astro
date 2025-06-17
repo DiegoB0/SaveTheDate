@@ -1,10 +1,9 @@
 ---
-import MobileMenuButton from '../components/MobileMenuButton.jsx';
-import '@fontsource/twinkle-star';
-
-import '@fontsource/merriweather';
-import '@fontsource/pacifico';
-
+import MobileMenuButton from "../components/MobileMenuButton.jsx";
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/raleway";
+import "@fontsource-variable/montserrat";
+import ToastContainerComponent from '../components/ToastContainerComponent.tsx'
 ---
 
 <!doctype html>
@@ -15,31 +14,37 @@ import '@fontsource/pacifico';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/icon.png" />
     <title>V & C</title>
-
   </head>
 
-  <body class="m-0 w-full h-full flex flex-col min-h-screen text-[#7B2E2E] bg-white font-medium">
+  <body
+    class="m-0 w-screen overflow-x-hidden h-full flex flex-col min-h-screen text-[#f7c8a3] font-medium relative"
+  >
+    <!--Repeating background-->
+    <div 
+      class="absolute top-32 bottom-0 right-0 left-0 opacity-[0.01] -z-10"
+      style="background-image: url(/bg.png); background-size: 500px 500px;"
+    />
     <!-- Sticky Navbar -->
-    <nav class="sticky top-0 z-50 bg-white text-[#7B2E2E] p-4 flex justify-between items-center shadow-md">
-      <div class="text-xl font-bold">
-        <a href="/" class="twinkle">Vanesa & Carlos</a>
+    <nav
+      class="sticky top-0 z-50 bg-rose-950/75 text-gold px-12 py-8 flex justify-between items-center shadow-md backdrop-blur-lg"
+    >
+      <div class="text-2xl font-bold">
+        <a href="/" class="text-3xl">V&C</a>
       </div>
 
       <!-- Desktop Nav -->
-      <div class="hidden md:flex gap-4">
-        <a href="/" class="hover:underline">Inicio</a>
-        <a href="/itinerary" class="hover:underline">Programa</a>
-        <a href="/rsvp" class="hover:underline">Asistencia</a>
-
-        <a href="/gifts" class="hover:underline">Regalos</a>
-        <a href="/gallery" class="hover:underline">Galería</a>
+      <div class="hidden md:flex gap-6 raleway font-bold pt-2 ml-auto">
+        <a href="/" class="text-base after:mt-0.5 after:opacity-60 after:block after:w-0 after:h-1 after:rounded-xs after:bg-[#f7c8a3] after:transition-all hover:after:w-full">INICIO</a>
+        <a href="/itinerary" class="text-base after:mt-0.5 after:opacity-60 after:block after:w-0 after:h-1 after:rounded-xs after:bg-[#f7c8a3] after:transition-all hover:after:w-full">PROGRAMA</a>
+        <a href="/rsvp" class="text-base after:mt-0.5 after:opacity-60 after:block after:w-0 after:h-1 after:rounded-xs after:bg-[#f7c8a3] after:transition-all hover:after:w-full">ASISTENCIA</a>
+        <a href="/gifts" class="text-base after:mt-0.5 after:opacity-60 after:block after:w-0 after:h-1 after:rounded-xs after:bg-[#f7c8a3] after:transition-all hover:after:w-full">REGALOS</a>
+        <a href="/gallery" class="text-base after:mt-0.5 after:opacity-60 after:block after:w-0 after:h-1 after:rounded-xs after:bg-[#f7c8a3] after:transition-all hover:after:w-full">GALERÍA</a>
       </div>
-
 
       <!-- Mobile Menu -->
       <MobileMenuButton client:load />
+      <!--<ToastContainerComponent client:load/>-->
     </nav>
-
 
     <!-- Main Content -->
     <main class="flex-1 w-full">
@@ -47,12 +52,3 @@ import '@fontsource/pacifico';
     </main>
   </body>
 </html>
-
-
-<style>
-  .twinkle {
-    font-family: 'Pacifico', cursive;
-  }
-
-</style>
-

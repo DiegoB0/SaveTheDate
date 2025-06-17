@@ -1,17 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import IntroSection from '../components/IntroSection.jsx'
-import LocationSection from '../components/LocationSection.jsx'
-import VelvetCarousel from '../components/VelvetCarousel.jsx'
-import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import IntroSection from "../components/IntroSection.jsx";
+import LocationSection from "../components/LocationSection.jsx";
+import VelvetCarousel from "../components/VelvetCarousel.jsx";
+import "../styles/global.css";
 ---
 
 <Layout>
-<IntroSection client:only="react" />
-
-<LocationSection client:load />
-
-<VelvetCarousel client:only="react"/>
-
+    <div class="flex flex-col">
+        <IntroSection client:only="react" />
+        <LocationSection client:visible />
+        <VelvetCarousel client:visible />
+    </div>
 </Layout>
-

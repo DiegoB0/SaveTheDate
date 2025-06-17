@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
+import { Camera, CameraIcon } from 'lucide-react';
 import '@fontsource/twinkle-star';
 import '@fontsource/merriweather';
 
@@ -13,22 +13,19 @@ function PhotoWall() {
   };
 
   return (
-    <section className="min-h-screen py-12 px-4 bg-orange-100 overflow-hidden relative">
+    <section className="min-h-screen py-12 px-4 overflow-hidden relative">
       <h2
-        className="text-3xl md:text-4xl font-bold text-center text-[#7B2E2E] mb-6"
-
-        style={{ fontFamily: "'Pacifico', cursive" }}
+        className="text-5xl font-bold text-center text-[#f2a366] mb-6"
       >
-        Mural de fotos
+        MURAL DE FOTOS
       </h2>
 
       <motion.p
-        className="text-center font-semibold text-gray-400 mb-8"
+        className="text-center text-2xl font-semibold text-[#f7dac6] mb-8 montserrat"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        style={{ fontFamily: "'Merriweather', normal" }}
       >
         Ayudanos a capturar momentos especiales de nuestra boda
       </motion.p>
@@ -39,7 +36,8 @@ function PhotoWall() {
         transition={{ duration: 0.8 }}
         className="text-center mb-8"
       >
-        <label className="inline-block px-6 py-2 bg-[#7B2E2E] text-white font-semibold rounded-lg cursor-pointer hover:bg-[#622323] transition-colors">
+        <label className=" flex justify-center p-4 px-12 w-fit mx-auto cursor-pointer rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5">
+          <CameraIcon className=' mr-4 -mt-0.5'/>
           Subir foto
           <input
 
@@ -57,12 +55,12 @@ function PhotoWall() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
 
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto"
       >
         {Array.from({ length: 8 }).map((_, i) => (
           <div
             key={i}
-            className="w-full aspect-square bg-white rounded-lg animate-pulse"
+            className="w-full aspect-square bg-black/60 rounded-xs animate-pulse"
 
           />
 

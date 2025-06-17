@@ -1,1 +1,108 @@
-@import "tailwindcss";
+ @import "tailwindcss";
+
+ :root {
+  /*--toastify-color-error: #4d0218;*/
+  --toastify-color-info: #f7c8a3;
+  --toastify-color-warning: #f2a366;
+  --toastify-color-error: #8b0836;
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+  
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+  
+  --toastify-container-width: fit-content;
+  --toastify-toast-width: min(95vw, 500px);
+  --toastify-toast-offset: 16px;
+  --toastify-toast-top: max(var(--toastify-toast-offset), env(safe-area-inset-top));
+  --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+  --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+  --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
+  --toastify-toast-background: #fff;
+  --toastify-toast-padding: 14px;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-toast-bd-radius: 6px;
+  --toastify-toast-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  --toastify-font-family: "Montserrat Variable", sans-serif;
+  --toastify-z-index: 9999;
+  --toastify-text-color-light: #757575;
+  --toastify-text-color-dark: #fff;
+
+  --toastify-text-color-warning: #00000090;
+  --toastify-text-color-error: #f7dac6;
+  --toastify-text-color-info: #00000080;
+
+   --toastify-spinner-color: #00000080;
+  --toastify-spinner-color-empty-area: ##f7c8a3;
+}
+  body {
+    font-family: "Playfair Display Variable", serif;
+    /*background: linear-gradient(to bottom, #1c0009, #2f000f);*/
+    background-color: #1c0009;
+
+  }
+  .raleway {
+    font-family: "Raleway Variable", sans-serif;
+  }
+  .montserrat {
+    font-family: 'Montserrat Variable', sans-serif;
+  }
+
+  select {
+  border: 2px solid #f7c8a3;
+  background: transparent;
+  padding: 10px;
+  transition: 0.4s;
+}
+
+.custom-select:hover,
+.custom-select:focus {
+  background: transparent;
+}
+
+.custom-select::picker-icon {
+  color: #f7c8a3;
+  transition: 0.2s rotate;
+}
+
+.custom-select:open::picker-icon {
+  rotate: 180deg;
+}
+
+::picker(select) {
+  border: none;
+}
+
+.custom-select option {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  border: 2px solid #f7c8a3;
+  background: transparent;
+  padding: 10px;
+  transition: 0.4s;
+}
+
+.custom-select option:first-of-type {
+  border-radius: 2px 2px 0 0;
+}
+
+.custom-select option:last-of-type {
+  border-radius: 0 0 2px 2px;
+}
+
+.custom-select option:not(option:last-of-type) {
+  border-bottom: none;
+}
+
+.custom-select option:nth-of-type(odd) {
+  background: transparent;
+}
+
+.custom-select option:hover,
+.custom-select option:focus {
+  background: black;
+}
+

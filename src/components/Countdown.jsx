@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import '@fontsource/twinkle-star';
-import '@fontsource/merriweather';
-
-import '@fontsource/pacifico';
+import "@fontsource-variable/raleway";
 
 const targetDate = new Date('2025-07-18T21:00:00-06:00').getTime();
 
@@ -42,23 +39,21 @@ export default function Countdown() {
 
 
   return (
-    <div className="text-center text-white space-y-4">
+    <div className="text-left text-[#f2a366] flex flex-col gap-4 px-4">
       <h1
-        className="text-[#ffffff] text-4xl md:text-5xl font-bold font-twinkle-star"
-        style={{ fontFamily: "'Pacifico', cursive" }}
+        className=" text-4xl md:text-5xl font-bold"
       >
 
-        ¡Te invitamos a nuestra boda!
+        ¡VEN A NUESTRA BODA!
       </h1>
 
 
       <motion.p
-        className="text-xl font-semibold text-orange-100"
+        className="text-[#f9f1ec] text-xl font-semibold montserrat"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInUp}
-        style={{ fontFamily: "'Merriweather', normal" }}
       >
         Nos casamos:
       </motion.p>
@@ -74,20 +69,20 @@ export default function Countdown() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
+        className=' montserrat flex flex-col gap-4'
       >
 
-        <p className="text-2xl font-bold" style={{ fontFamily: "'Merriweather', normal" }}>
+        <p className="text-2xl font-bold">
           Viernes 18 de Julio 2025
         </p>
 
-        <h2 className="text-lg italic" style={{ fontFamily: "'Merriweather', normal" }}>
+        <h2 className="text-lg font-semibold text-[#f9f1ec]">
           Solo faltan:
         </h2>
 
-        <div className="flex flex-col items-center space-y-6">
+        <div className="flex flex-col items-start gap-4">
           <div
-            className="text-2xl font-semibold flex justify-center gap-6 mt-4"
-            style={{ fontFamily: "'Merriweather', normal" }}
+            className="text-3xl font-semibold flex justify-center gap-6"
           >
             {[
               { value: timeLeft.days, label: 'días' },
@@ -97,8 +92,8 @@ export default function Countdown() {
 
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <span style={{ color: '#ffffff' }}>{item.value}</span>
-                <div className="text-sm text-[#ffffff]">{item.label}</div>
+                <span className=' text-[#f7dac6]'>{item.value}</span>
+                <div className="text-sm text-[#f7dac6]">{item.label}</div>
               </div>
 
             ))}
@@ -106,7 +101,7 @@ export default function Countdown() {
 
           <a
             href="/rsvp"
-            className="border-2 border-orange-100 p-2 rounded-xl text-orange-100 font-semibold hover:bg-orange-100 hover:text-[#7B2E2E] transition-colors duration-200 ease-in-out"
+            className="w-full flex justify-center p-4 rounded-sm bg-rose-950/80 shadow mt-4 text-[#f7dac6] montserrat font-semibold transition-all hover:bg-rose-950 hover:-translate-y-1 active:-translate-y-0.5 backdrop-blur-xl"
           >
             Confirmar asistencia
           </a>
@@ -114,7 +109,7 @@ export default function Countdown() {
           <a
 
             href="/gifts"
-            className="border-1 border-orange-100 p-2 text-[#7B2E2E] rounded-xl bg-orange-100 font-semibold hover:text-orange-100 hover:bg-[#7B2E2E] hover:border-[#7B2E2E] transition-colors duration-200 ease-in-out"
+            className="w-full flex justify-center p-4 rounded-sm border-3 bg-rose-950/20 border-[#f7dac680] text-[#f7dac6] shadow montserrat font-semibold transition-all hover:border-[#f7dac6] hover:-translate-y-1 active:-translate-y-0.5 backdrop-blur-xl"
           >
             Ver lista de regalos
           </a>

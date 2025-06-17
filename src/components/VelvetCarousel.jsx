@@ -40,75 +40,61 @@ export default function VelvetCarousel() {
   }, [visibleCount]);
 
   return (
-    <section className="bg-orange-100 py-12 px-4">
+    <section className="py-12 min-h-[calc(100dvh-6rem)] bg-rose-950/20">
       <motion.h2
-        className="text-3xl font-bold text-center text-[#7B2E2E] mb-8"
-        style={{ fontFamily: "'Pacifico', cursive" }}
+        className="text-5xl font-bold text-center text-[#f7dac6] mt-4 mb-16"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        Vista del lugar
-
+        VISTA DEL LUGAR
       </motion.h2>
-
-      <motion.div
-        className="relative w-full max-w-6xl mx-auto overflow-hidden"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
+      <div className='bg-[#1c0009] backdrop-blur-xs w-full shadow-md'>     
         <motion.div
-
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            width: `${(images.length / visibleCount) * 100}%`,
-            transform: `translateX(-${(100 / totalGroups) * currentGroup}%)`,
-          }}
+          className="relative w-full max-w-[90vw] mx-auto overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
-          {images.map((src, index) => (
-            <div
-              key={index}
-              className={`w-full ${isDesktop ? 'md:w-1/3' : 'w-full'} aspect-[4/3] p-1`}
-            >
-              <motion.img
-                src={src}
-                alt={`Velvet ${index + 1}`}
-                className="w-full h-full object-cover rounded-xl shadow-md"
-                whileHover={{
-                  scale: 1.03,
-                  filter: 'brightness(1.05)',
-                  transition: { type: 'spring', stiffness: 200 },
-                }}
-              />
+          <motion.div
 
-              {/* <img */}
-              {/*   src={src} */}
-              {/*   alt={`Velvet ${index + 1}`} */}
-              {/*   className="w-full h-full object-cover rounded-xl shadow-md" */}
-              {/* /> */}
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              width: `${(images.length / visibleCount) * 100}%`,
+              transform: `translateX(-${(100 / totalGroups) * currentGroup}%)`,
+            }}
+          >
+            {images.map((src, index) => (
+              <div
+                key={index}
+                className={`w-full ${isDesktop ? 'md:w-1/3' : 'w-full'} aspect-[4/3] p-2`}
+              >
+                <motion.img
+                  src={src}
+                  alt={`Velvet ${index + 1}`}
+                  className="w-full h-full object-cover shadow-m rounded-xs transition-all hover:translate-y-0.5 hover:brightness-105 opacity-95"
+                />
+              </div>
+            ))}
+          </motion.div>
 
-            </div>
-          ))}
+          {/* Arrows */}
+          <button
+            className="absolute top-1/2 left-2 -translate-y-1/2 bg-[#f7dac6] p-2 rounded-full z-10 cursor-pointer transition-all hover:-translate-y-[45%]"
+            onClick={prev}
+          >
+            <ChevronLeft className="w-8 h-8 text-rose-950" />
+          </button>
+          <button
+            className="absolute top-1/2 right-2 -translate-y-1/2 bg-[#f7dac6] p-2 rounded-full z-10 cursor-pointer transition-all hover:-translate-y-[45%]"
+            onClick={next}
+          >
+            <ChevronRight className="w-8 h-8 text-rose-950" />
+          </button>
         </motion.div>
-
-        {/* Arrows */}
-        <button
-
-          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white z-10"
-          onClick={prev}
-        >
-          <ChevronLeft className="w-6 h-6 text-[#7B2E2E]" />
-        </button>
-        <button
-          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white z-10"
-          onClick={next}
-        >
-          <ChevronRight className="w-6 h-6 text-[#7B2E2E]" />
-        </button>
-      </motion.div>
+      </div>
 
       {/* Pagination Dots */}
 
@@ -119,7 +105,7 @@ export default function VelvetCarousel() {
             key={i}
 
             onClick={() => setCurrentGroup(i)}
-            className={`w-3 h-3 rounded-full transition-all ${i === currentGroup ? 'bg-[#7B2E2E]' : 'bg-[#7B2E2E]/30'
+            className={`w-3 h-3 rounded-full transition-all ${i === currentGroup ? 'bg-[#f7dac675]' : 'bg-[#f7dac650]'
               }`}
           />
         ))}
