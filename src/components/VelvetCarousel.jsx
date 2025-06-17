@@ -40,7 +40,7 @@ export default function VelvetCarousel() {
   }, [visibleCount]);
 
   return (
-    <section className="py-12 min-h-[calc(100dvh-6rem)] bg-rose-950/20">
+    <section className="py-12 min-h-[calc(100vh-6rem)] bg-rose-950/20">
       <motion.h2
         className="text-5xl font-bold text-center text-[#f7dac6] mt-4 mb-16"
         initial={{ opacity: 0, y: 40 }}

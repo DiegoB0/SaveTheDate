@@ -50,15 +50,15 @@ export default function ItinerarySection() {
         ref={ref}
         className="flex justify-center montserrat"
       >
-        <div className='px-2 sm:px-4 xl:px-32 rounded-xs h-[250dvh] w-full grid gid-rows-3'>
+        <div className='px-2 sm:px-4 xl:px-32 rounded-xs h-[250vh] w-full grid gid-rows-3'>
           <div 
              className=' w-5 h-5 rounded-full bg-[#f7dac6] absolute -translate-y-8 -translate-x-1.5 xl:-translate-x-0 xl:justify-self-center'
           />
           <div
-            className=' w-2 rounded-3xl h-[250dvh] bg-[#f7dac6] absolute xl:justify-self-center'
+            className=' w-2 rounded-3xl h-[250vh] bg-[#f7dac6] absolute xl:justify-self-center'
           />
             <div 
-             className=' w-5 h-5 rounded-full bg-[#f7dac6] absolute translate-y-[calc(250dvh+0.8rem)] -translate-x-1.5 xl:-translate-x-0 xl:justify-self-center'
+             className=' w-5 h-5 rounded-full bg-[#f7dac6] absolute translate-y-[calc(250vh+0.8rem)] -translate-x-1.5 xl:-translate-x-0 xl:justify-self-center'
           />
           <div className=' xl:grid xl:grid-cols-5 items-center'>
             <div className=' mt-36 xl:mt-0 ml-8 xl:ml-0 w-[min(80vw,40rem)] xl:w-full p-8 border-4 bg-red-950/50 shadow col-span-2 flex flex-col gap-6 relative rounded-xs backdrop-blur-xs'>

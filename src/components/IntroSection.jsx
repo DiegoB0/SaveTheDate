@@ -5,7 +5,7 @@ export default function IntroSection() {
 
   return (
     <section
-      className="relative xl:min-h-[calc(100dvh-6rem)] overflow-hidden my-12 xl:my-0"
+      className="relative xl:min-h-[calc(100vh-6rem)] overflow-hidden my-12 xl:my-0"
     >
       {/*<div
         style={{
