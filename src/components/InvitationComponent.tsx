@@ -139,7 +139,7 @@ export default function InvitationComponent({ data }: { data: any }) {
                             if (data[0].additionals < 1) return null
 
                             return (
-                                <button onClick={() => setCurrentQrIndex(index)} className={` border-x-[1px] border-y-2 ${index == 0 && 'border-l-2'} ${index == data[0].qrCodes.length - 1 && 'border-r-2'} px-3 py-0.5 text-lg montserrat ${currentQrIndex == index && 'bg-rose-900'}`}>
+                                <button key={index} onClick={() => setCurrentQrIndex(index)} className={` border-x-[1px] border-y-2 ${index == 0 && 'border-l-2'} ${index == data[0].qrCodes.length - 1 && 'border-r-2'} px-3 py-0.5 text-lg montserrat ${currentQrIndex == index && 'bg-rose-900'}`}>
                                     {index + 1}
                                 </button>
                             )
