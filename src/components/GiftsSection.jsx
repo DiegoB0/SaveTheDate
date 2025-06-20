@@ -29,7 +29,7 @@ export default function GiftsSection() {
       title: 'Liverpool',
       icon: <Gift className="w-12 h-12 text-[##f7dac6]" />,
       description: 'Consulta nuestra mesa de regalos en Liverpool.',
-      link: '/gifts',
+      link: 'https://mesaderegalos.liverpool.com.mx/milistaderegalos/51708160',
     },
   ];
 
