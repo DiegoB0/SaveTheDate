@@ -127,7 +127,7 @@ export default function InvitationComponent({ data }: { data: any }) {
                     Lugar:  <span className=' opacity-70'>Jardin y Salón Velvet</span>
                 </p>
                 {
-                    data[0].additionals && (
+                    !!data[0].additionals && (
                         <p className=' opacity-50 text-base text-[#f7dac6] montserrat -mb-6'>{currentQrIndex === 0 ? `Qr de ${data[0].guestName}` : `Qr del acompañante ${currentQrIndex}`}</p>
                     ) 
                 }
