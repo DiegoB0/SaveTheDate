@@ -23,7 +23,7 @@ export default function GiftsSection() {
       title: 'Amazon',
       icon: <Package className="w-12 h-12 text-[##f7dac6]" />,
       description: 'Tenemos una lista de regalos disponible en Amazon.',
-      link: '/gifts',
+      link: 'https://www.amazon.com.mx/wedding/registry/O2K7731FEBSP',
     },
     {
       title: 'Liverpool',
@@ -75,7 +75,7 @@ export default function GiftsSection() {
             );
 
             return card.link ? (
-              <a href={card.link} key={index}>
+              <a href={card.link} key={index} target='_blank'>
                 {content}
               </a>
 
