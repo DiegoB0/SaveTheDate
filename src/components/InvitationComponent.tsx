@@ -10,49 +10,51 @@ export default function InvitationComponent({ data }: { data: any }) {
 
     async function handleDownload() {
         setIsDownloading(true);
-        const pdfUrl = data[0].pdfiles[0];
+        const pdfUrl = data[0].pdfiles;
 
         console.log(pdfUrl)
 
         const fileName = `invitacion-${data[0].guestName}`;
 
-        try {
-            // Method 1: Open in new tab and also trigger download
-            const link = document.createElement('a');
-            link.href = pdfUrl;
-            link.download = fileName;
-            link.target = '_blank';  // This makes it open in new tab
-            link.rel = 'noopener noreferrer';  // Security best practice
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Failed to download PDF. Please try again.');
-        } finally {
-            setIsDownloading(false);
-        }
-
         //try {
-
-        //    const response = await fetch(pdfUrl);
-        //    const blob = await response.blob();
-        //    const blobUrl = window.URL.createObjectURL(blob);
+        //    // Method 1: Open in new tab and also trigger download
         //    const link = document.createElement('a');
-        //    link.href = blobUrl;
+        //    link.href = pdfUrl;
         //    link.download = fileName;
+        //    link.target = '_blank';  // This makes it open in new tab
+        //    link.rel = 'noopener noreferrer';  // Security best practice
         //    document.body.appendChild(link);
         //    link.click();
         //    document.body.removeChild(link);
-        //    window.URL.revokeObjectURL(blobUrl);
-
         //} catch (error) {
         //    console.error('Download failed:', error);
         //    alert('Failed to download PDF. Please try again.');
         //} finally {
         //    setIsDownloading(false);
         //}
+
+        try {
+
+            const response = await fetch(pdfUrl);
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Failed to download PDF. Please try again.');
+        } finally {
+            setIsDownloading(false);
+        }
     }
+    
+    console.log(data)
 
     return (
         <motion.div
@@ -124,19 +126,26 @@ export default function InvitationComponent({ data }: { data: any }) {
                 <p className=' text-[#f7dac6] text-xl montserrat'>
                     Lugar:  <span className=' opacity-70'>Jardin y Salón Velvet</span>
                 </p>
-                <img src={data[0].qrCodes[currentQrIndex]} className=' w-40 h-40 mt-4 rounded-xs' alt='Código qr' />
                 {
-                    data[0].qrCodes.map((qr: string, index: number) => {
-
-                        if (data[0].qrCodes.length = 1) return null
-
-                        return (
-                            <button onClick={() => setCurrentQrIndex(index)} className={` border-x-[1px] border-y-2 ${index == 0 && 'border-l-2'} ${index == data[0].qrCodes.length - 1 && 'border-r-2'} px-3 py-0.5 text-lg montserrat ${currentQrIndex == index && 'bg-rose-900'}`}>
-                                {index}
-                            </button>
-                        )
-                    })
+                    data[0].additionals && (
+                        <p className=' opacity-50 text-base text-[#f7dac6] montserrat -mb-6'>{currentQrIndex === 0 ? `Qr de ${data[0].guestName}` : `Qr del acompañante ${currentQrIndex}`}</p>
+                    ) 
                 }
+                <img src={data[0].qrCodes[0]?.slice(0, -5) + `${currentQrIndex}.png`} className=' w-40 h-40 mt-4 rounded-xs' alt='Código qr' />
+                <div className=' flex'>
+                    {
+                        data[0].qrCodes.map((qr: string, index: number) => {
+
+                            if (data[0].additionals < 1) return null
+
+                            return (
+                                <button onClick={() => setCurrentQrIndex(index)} className={` border-x-[1px] border-y-2 ${index == 0 && 'border-l-2'} ${index == data[0].qrCodes.length - 1 && 'border-r-2'} px-3 py-0.5 text-lg montserrat ${currentQrIndex == index && 'bg-rose-900'}`}>
+                                    {index + 1}
+                                </button>
+                            )
+                        })
+                    }
+                </div>
                 <div className='grid grid-cols-2 gap-4 max-w-2xl w-[75vw] mt-8'>
                     <a
                         href="/rsvp"

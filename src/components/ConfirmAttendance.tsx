@@ -4,7 +4,7 @@ import '@fontsource/merriweather';
 import { useRef, useState } from 'react';
 import api from '../../lib/api';
 import { Flip, Slide, toast, ToastContainer } from 'react-toastify'
-import { FaFrown, FaGrin } from "react-icons/fa";
+import { FaFrown, FaGrin, FaGrinBeamSweat, FaSurprise } from "react-icons/fa";
 import { AiOutlineLoading } from "react-icons/ai";
 import { navigate } from 'astro/virtual-modules/transitions-router.js';
 import InvitationComponent from './InvitationComponent';
@@ -71,6 +71,8 @@ function ConfirmAttandence() {
 
       const response = await api.get(`tickets/info/${values.name}?confirmAttendance=${willAttend}&email=${values.email}`)
 
+      console.log(response)
+
       setData(response.data)
 
       toast.update(toastId.current, {render: '¡Invitación encontrada!', type: 'warning', icon: <FaGrin className=' text-2xl'/>})
@@ -87,6 +89,11 @@ function ConfirmAttandence() {
       //@ts-expect-error
       if (error?.response?.data?.error?.includes('must confirm')) {
         toast.update(toastId.current, {render: `Lamentamos que no puedas asistir, pero agradecemos que nos hayas confirmado`, type: 'warning', icon: <FaFrown className=' text-2xl'/>})
+        return
+      }
+      //@ts-expect-error
+      if (error?.response?.data?.error?.includes('already generated')) {
+        toast.update(toastId.current, {render: `Ya se generó una invitación para este invitado. Si necesitas otra, por favor contáctate con los novios.`, type: 'warning', icon: <FaGrinBeamSweat className=' text-2xl'/>})
         return
       }
       toast.update(toastId.current, {render: `Ocurrió un error inesperado, por favor intentalo de nuevo más tarde`, type: 'error'})
