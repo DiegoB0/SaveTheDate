@@ -277,7 +277,7 @@ function ConfirmAttandence() {
                   />
                   <p className="text-xs text-[#f7c8a3] opacity-80 mt-1">
 
-                    *Si deseas recibir avisos o recordatorios antes del evento, déjanos tu correo*
+                    Por si deseas recibir tu invitación en tu correo
                   </p>
                   <p className=' text-xs text-rose-700 mt-2 montserrat'>
                     {errors.email}
