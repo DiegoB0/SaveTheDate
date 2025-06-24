@@ -70,14 +70,14 @@ export default function MobileMenuButton() {
               <span className="flex justify-end"><ArrowRight className=' w-7 h-7'/></span>
             </a>
 
-            <a href="/gallery" className="flex justify-between items-center hover:underline w-full">
+            {/*<a href="/gallery" className="flex justify-between items-center hover:underline w-full">
               <span className="flex items-center gap-4">
                 <Camera className="w-7 h-7" />
                 Galería
               </span>
 
               <span className="flex justify-end"><ArrowRight className=' w-7 h-7'/></span>
-            </a>
+            </a>*/}
 
           </div>
         </div>
