@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { toast } from 'react-toastify'
 
 export default function InvitationComponent({ data }: { data: any }) {
 
@@ -48,7 +49,7 @@ export default function InvitationComponent({ data }: { data: any }) {
 
         } catch (error) {
             console.error('Download failed:', error);
-            alert('Failed to download PDF. Please try again.');
+            toast.error('Error al descargar PDF')
         } finally {
             setIsDownloading(false);
         }
